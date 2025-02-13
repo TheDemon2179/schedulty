@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Редактор замен в расписании</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<h1>Редактор замен в расписании</h1>
+
+			<div class="controls">
+				<select id="daySelect">
+					<option value="Понедельник">Понедельник</option>
+					<option value="Вторник">Вторник</option>
+					<option value="Среда">Среда</option>
+					<option value="Четверг">Четверг</option>
+					<option value="Пятница">Пятница</option>
+					<option value="Суббота">Суббота</option>
+				</select>
+
+				<div class="change-input">
+					<input
+						type="number"
+						id="lessonNumber"
+						placeholder="Номер урока"
+						min="1"
+					/>
+					<input type="text" id="newSubject" placeholder="Новый предмет" />
+					<button onclick="addChange()">Добавить замену</button>
+				</div>
+
+				<button onclick="copySchedule()">Копировать расписание</button>
+			</div>
+
+			<div id="scheduleDisplay" class="schedule"></div>
+		</div>
+
+		<script src="data.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
