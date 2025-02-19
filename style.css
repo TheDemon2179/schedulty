@@ -63,3 +63,21 @@ button:hover {
 	background-color: #ffeeba;
 	border-left-color: #ffc107;
 }
+
+#suggestions {
+	position: relative;
+	width: 100%;
+	max-width: 300px;
+}
+
+.suggestion-item {
+	padding: 8px;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-top: none;
+	cursor: pointer;
+}
+
+.suggestion-item:hover {
+	background-color: #f8f9fa;
+}

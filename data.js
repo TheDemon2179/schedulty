@@ -61,3 +61,7 @@ const baseSchedule = {
 
 // Объект для хранения изменений
 let changes = {}
+
+document.addEventListener('DOMContentLoaded', () => {
+	allSubjects.sort((a, b) => a.localeCompare(b))
+})

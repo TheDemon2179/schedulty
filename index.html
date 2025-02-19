@@ -26,7 +26,15 @@
 						placeholder="Номер урока"
 						min="1"
 					/>
-					<input type="text" id="newSubject" placeholder="Новый предмет" />
+					<div style="position: relative">
+						<input
+							type="text"
+							id="newSubject"
+							placeholder="Новый предмет"
+							oninput="showSuggestions(this.value)"
+						/>
+						<div id="suggestions" class="suggestions"></div>
+					</div>
 					<button onclick="addChange()">Добавить замену</button>
 				</div>
 
