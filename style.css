@@ -1,16 +1,57 @@
+/* Цветовые переменные для темы */
+:root {
+	--bg-color: #f0f0f0;
+	--container-bg: white;
+	--text-color: black;
+	--border-color: #ddd;
+	--button-bg: #4caf50;
+	--button-hover-bg: #45a049;
+	--schedule-bg: #fff;
+	--lesson-border-color: #4caf50;
+	--changed-bg: #ffeeba;
+	--changed-border-color: #ffc107;
+	--suggestion-bg: #fff;
+	--suggestion-hover-bg: #f8f9fa;
+	--selected-lesson-bg: #cce5ff;
+	--selected-lesson-border-color: #007bff;
+	--active-mode-button-bg: #2196f3;
+}
+
+/* Тёмная тема */
+.dark-theme {
+	--bg-color: #121212; /* Очень тёмный серый */
+	--container-bg: #1e1e1e; /* Темнее контейнер */
+	--text-color: #e0e0e0; /* Светло-серый текст */
+	--border-color: #555; /* Темнее границы */
+	--button-bg: #5e81ac; /* Более приглушенный цвет для кнопок */
+	--button-hover-bg: #4c6a8d;
+	--schedule-bg: #2b2b2b; /* Темный фон расписания */
+	--lesson-border-color: #5e81ac;
+	--changed-bg: #4a442b; /* Темнее желтый для изменений */
+	--changed-border-color: #b38f42;
+	--suggestion-bg: #2b2b2b;
+	--suggestion-hover-bg: #3a3a3a;
+	--selected-lesson-bg: #3a526a; /* Темнее синий для выделения */
+	--selected-lesson-border-color: #5e81ac;
+	--active-mode-button-bg: #64b5f6; /* Более светлый синий для активного режима в темной теме */
+}
+
 body {
 	font-family: Arial, sans-serif;
 	margin: 20px;
-	background-color: #f0f0f0;
+	background-color: var(--bg-color); /* Используем переменную */
+	color: var(--text-color); /* Используем переменную */
+	transition: background-color 0.3s, color 0.3s; /* Плавный переход для темы */
 }
 
 .container {
 	max-width: 800px;
 	margin: 0 auto;
-	background: white;
+	background: var(--container-bg); /* Используем переменную */
 	padding: 20px;
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	transition: background-color 0.3s; /* Плавный переход */
 }
 
 .controls {
@@ -25,19 +66,22 @@ input,
 button {
 	padding: 8px;
 	margin: 5px;
-	border: 1px solid #ddd;
+	border: 1px solid var(--border-color); /* Используем переменную */
 	border-radius: 4px;
+	background-color: var(--container-bg); /* Используем переменную */
+	color: var(--text-color); /* Используем переменную */
+	transition: border-color 0.3s, background-color 0.3s, color 0.3s; /* Плавный переход */
 }
 
 button {
-	background-color: #4caf50;
+	background-color: var(--button-bg); /* Используем переменную */
 	color: white;
 	cursor: pointer;
-	transition: background 0.3s;
+	transition: background-color 0.3s; /* Плавный переход */
 }
 
 button:hover {
-	background-color: #45a049;
+	background-color: var(--button-hover-bg); /* Используем переменную */
 }
 
 .change-input {
@@ -47,37 +91,147 @@ button:hover {
 }
 
 .schedule {
-	background: #fff;
+	background: var(--schedule-bg); /* Используем переменную */
 	padding: 15px;
 	border-radius: 5px;
-	border: 1px solid #ddd;
+	border: 1px solid var(--border-color); /* Используем переменную */
+	transition: background-color 0.3s, border-color 0.3s; /* Плавный переход */
 }
 
 .lesson {
 	padding: 5px;
 	margin: 3px 0;
-	border-left: 3px solid #4caf50;
+	border-left: 3px solid var(--lesson-border-color); /* Используем переменную */
+	transition: border-color 0.3s; /* Плавный переход */
 }
 
 .changed {
-	background-color: #ffeeba;
-	border-left-color: #ffc107;
+	background-color: var(--changed-bg); /* Используем переменную */
+	border-left-color: var(--changed-border-color); /* Используем переменную */
+	transition: background-color 0.3s, border-left-color 0.3s; /* Плавный переход */
 }
 
 #suggestions {
 	position: relative;
 	width: 100%;
 	max-width: 300px;
+	background-color: var(--suggestion-bg); /* Используем переменную */
+	border: 1px solid var(--border-color); /* Используем переменную */
+	border-top: none;
+	border-radius: 0 0 4px 4px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	transition: background-color 0.3s, border-color 0.3s; /* Плавный переход */
 }
 
 .suggestion-item {
 	padding: 8px;
-	background: #fff;
-	border: 1px solid #ddd;
-	border-top: none;
+	background: var(--suggestion-bg); /* Используем переменную */
+	border-top: 1px solid var(--border-color); /* Используем переменную */
 	cursor: pointer;
+	transition: background-color 0.3s, border-color 0.3s; /* Плавный переход */
 }
 
 .suggestion-item:hover {
-	background-color: #f8f9fa;
+	background-color: var(--suggestion-hover-bg); /* Используем переменную */
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+	.container {
+		padding: 10px;
+		margin: 10px;
+	}
+
+	.controls {
+		gap: 8px;
+	}
+
+	.change-input {
+		flex-direction: column;
+	}
+
+	input,
+	button,
+	select {
+		width: 100%;
+		margin: 3px 0 !important;
+		padding: 10px;
+	}
+
+	#shortModeBtn {
+		width: 100%;
+		margin: 5px 0;
+	}
+}
+
+/* Стили для режима сокращений */
+button.active-mode {
+	background-color: var(--active-mode-button-bg); /* Используем переменную */
+}
+
+.suggestions {
+	z-index: 1000;
+}
+
+.lesson[style*='opacity'] {
+	border-left-color: #ddd;
+}
+
+/* Добавляем анимацию для новых уроков */
+@keyframes newLesson {
+	from {
+		transform: translateY(-10px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.changed {
+	animation: newLesson 0.3s ease-out;
+}
+
+@media (max-width: 480px) {
+	h1 {
+		font-size: 1.5rem;
+	}
+
+	.lesson {
+		font-size: 14px;
+		padding: 8px;
+	}
+
+	.suggestion-item {
+		font-size: 14px;
+	}
+}
+
+.lesson.selected {
+	background-color: var(--selected-lesson-bg); /* Используем переменную */
+	border-left-color: var(
+		--selected-lesson-border-color
+	); /* Используем переменную */
+	transition: background-color 0.3s, border-left-color 0.3s; /* Плавный переход */
+}
+
+.lesson-actions {
+	display: flex;
+	justify-content: flex-end; /* Кнопки справа */
+	gap: 10px;
+	margin-top: 15px;
+
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s, visibility 0.3s; /* Плавное появление/скрытие */
+}
+
+.lesson-actions.visible {
+	opacity: 1;
+	visibility: visible;
+}
+
+.lesson-actions button {
+	padding: 8px 15px;
 }

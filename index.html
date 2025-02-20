@@ -9,6 +9,14 @@
 		<div class="container">
 			<h1>Редактор замен в расписании</h1>
 
+			<div class="mode-control">
+				<button id="shortModeBtn" onclick="toggleShortMode()">
+					Сокращённый режим
+				</button>
+			</div>
+
+			<button id="themeToggleBtn" onclick="toggleTheme()">Тёмная тема</button>
+
 			<div class="controls">
 				<select id="daySelect">
 					<option value="Понедельник">Понедельник</option>
@@ -42,6 +50,14 @@
 			</div>
 
 			<div id="scheduleDisplay" class="schedule"></div>
+			<div class="lesson-actions" style="display: none">
+				<button id="editLessonBtn" onclick="editSelectedLesson()">
+					Редактировать урок
+				</button>
+				<button id="clearLessonBtn" onclick="clearSelectedLesson()">
+					Очистить урок
+				</button>
+			</div>
 		</div>
 
 		<script src="data.js"></script>
