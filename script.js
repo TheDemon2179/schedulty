@@ -96,6 +96,8 @@ function editSelectedLesson() {
 			.forEach(el => el.classList.remove('selected'))
 		selectedLessonDay = null
 		selectedLessonNumber = null
+
+		document.getElementById('newSubject').focus()
 	}
 }
 
